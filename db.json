@@ -1,0 +1,54 @@
+{
+  "expenses": [
+    {
+      "id": "1",
+      "amount": 100,
+      "description": "Grocery shopping"
+    },
+    {
+      "id": "2",
+      "amount": 50,
+      "description": "Transport"
+    },
+    {
+      "id": "6669",
+      "description": "test",
+      "amount": 20,
+      "date": "2024-11-15",
+      "type": "income"
+    },
+    {
+      "id": "a4d5",
+      "description": "test income",
+      "amount": 35,
+      "date": "2024-11-01",
+      "type": "income"
+    }
+  ],
+  "income": [
+    {
+      "id": "1",
+      "amount": 2000,
+      "description": "Salary"
+    },
+    {
+      "id": "2",
+      "amount": 500,
+      "description": "Freelance"
+    },
+    {
+      "id": "d09f",
+      "description": "gelir test",
+      "amount": 38,
+      "date": "2024-11-23",
+      "type": "income"
+    },
+    {
+      "id": "604b",
+      "description": "Test",
+      "amount": 256,
+      "date": "2024-01-01",
+      "type": "income"
+    }
+  ]
+}
