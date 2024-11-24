@@ -3,52 +3,88 @@
     {
       "id": "1",
       "amount": 100,
-      "description": "Grocery shopping"
+      "description": "Yerel marketten yapılan alışveriş",
+      "date": "2024-01-10",
+      "category": "Yiyecek & İçecek"
     },
     {
       "id": "2",
       "amount": 50,
-      "description": "Transport"
+      "description": "Günlük ulaşım masrafları",
+      "date": "2024-02-12",
+      "category": "Ulaşım"
     },
     {
       "id": "6669",
-      "description": "test",
       "amount": 20,
+      "description": "Arkadaşla kafe buluşması",
       "date": "2024-11-15",
-      "type": "income"
+      "category": "Eğlence"
     },
     {
       "id": "a4d5",
-      "description": "test income",
       "amount": 35,
+      "description": "İş için kırtasiye malzemesi",
       "date": "2024-11-01",
-      "type": "income"
+      "category": "İş Masrafları"
+    },
+    {
+      "id": "7893",
+      "amount": 150,
+      "description": "Kasım ayı elektrik faturası",
+      "date": "2024-11-20",
+      "category": "Faturalar"
+    },
+    {
+      "id": "4567",
+      "amount": 300,
+      "description": "Kışlık kıyafet alışverişi",
+      "date": "2024-10-05",
+      "category": "Giyim"
     }
   ],
   "income": [
     {
       "id": "1",
       "amount": 2000,
-      "description": "Salary"
+      "description": "Aylık maaş ödemesi",
+      "date": "2024-01-31",
+      "category": "Maaş"
     },
     {
       "id": "2",
       "amount": 500,
-      "description": "Freelance"
+      "description": "Freelance proje ödemesi",
+      "date": "2024-02-15",
+      "category": "Freelance Gelir"
     },
     {
       "id": "d09f",
-      "description": "gelir test",
       "amount": 38,
+      "description": "Online alışverişten geri ödeme",
       "date": "2024-11-23",
-      "type": "income"
+      "category": "Ödüller"
     },
     {
       "id": "604b",
-      "description": "Test",
       "amount": 256,
+      "description": "Hisse yatırımlarından temettü",
       "date": "2024-01-01",
-      "type": "income"
+      "category": "Yatırımlar"
+    },
+    {
+      "id": "781c",
+      "amount": 800,
+      "description": "Performans bonusu",
+      "date": "2024-07-15",
+      "category": "Prim"
+    },
+    {
+      "id": "34f7",
+      "amount": 150,
+      "description": "Kiralık mülkten gelen gelir",
+      "date": "2024-09-01",
+      "category": "Kira Geliri"
     }
   ]
 }

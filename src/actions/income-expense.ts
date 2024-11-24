@@ -26,11 +26,8 @@ export const addTransaction = async (transaction: Expense) => {
       throw new Error(`Failed to add ${transaction.type}`);
     }
 
-    // İlgili tüm tag'leri revalidate et
-    revalidateTag("income");
-    revalidateTag("expense");
-
     const newTransaction = await response.json();
+    revalidateTag(transaction.type);
     return newTransaction;
   } catch (error) {
     console.error("Error in addTransaction:", error);
@@ -44,7 +41,7 @@ export const getExpenses = async () => {
       `${process.env.NEXT_PUBLIC_BASE_URL}/expenses`,
       {
         method: "GET",
-        next: { tags: ["expense"] },
+        next: { tags: ["expense"], revalidate: 0 },
         headers: {
           "Content-Type": "application/json",
         },
@@ -69,7 +66,7 @@ export const getIncome = async () => {
       `${process.env.NEXT_PUBLIC_BASE_URL}/income`,
       {
         method: "GET",
-        next: { tags: ["income"] },
+        next: { tags: ["income"], revalidate: 0 },
         headers: {
           "Content-Type": "application/json",
         },
@@ -84,6 +81,58 @@ export const getIncome = async () => {
     return income;
   } catch (error) {
     console.error("Error in getIncome:", error);
+    throw error;
+  }
+};
+
+// Gider silme fonksiyonu
+export const deleteExpense = async (id: string) => {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/expenses/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to delete expense");
+    }
+
+    revalidateTag("expense");
+    return true;
+  } catch (error) {
+    console.error("Error in deleteExpense:", error);
+    throw error;
+  }
+};
+
+// Gelir silme fonksiyonu
+export const deleteIncome = async (id: string) => {
+  console.log("DELETE INCOME");
+
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/income/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to delete income");
+    }
+
+    revalidateTag("income");
+    return true;
+  } catch (error) {
+    console.error("Error in deleteIncome:", error);
     throw error;
   }
 };
