@@ -12,12 +12,14 @@ import {
   SelectValue,
 } from "./ui/select";
 import { addTransaction } from "../actions/income-expense"; // actions'dan import
+import { expenseCategories, incomeCategories } from "@/lib/constants";
 
 interface Expense {
   description: string;
   amount: number;
   date: string; // ISO format
   type: "income" | "expense";
+  category: string; // Yeni kategori alanı
 }
 
 export default function ExpenseForm() {
@@ -26,6 +28,7 @@ export default function ExpenseForm() {
     amount: 0,
     date: "",
     type: "income",
+    category: "", // Başlangıçta kategori boş
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -43,6 +46,14 @@ export default function ExpenseForm() {
     setFormData((prev) => ({
       ...prev,
       type: value,
+      category: "", // Tür değiştiğinde kategori sıfırlanır
+    }));
+  };
+
+  const handleCategoryChange = (value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      category: value,
     }));
   };
 
@@ -59,6 +70,7 @@ export default function ExpenseForm() {
         amount: 0,
         date: "",
         type: "income",
+        category: "",
       });
     } catch (err: any) {
       setError(err.message || "Failed to save expense");
@@ -67,9 +79,14 @@ export default function ExpenseForm() {
     }
   };
 
+  // Kategori listesi türüne göre belirleniyor
+  const categories =
+    formData.type === "income" ? incomeCategories : expenseCategories;
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="flex flex-col gap-4">
+        {/* Tür Seçimi */}
         <div className="flex flex-col gap-2">
           <Label className="font-bold" htmlFor="type">
             Tür
@@ -89,6 +106,31 @@ export default function ExpenseForm() {
             </SelectContent>
           </Select>
         </div>
+
+        {/* Kategori Seçimi */}
+        <div className="flex flex-col gap-2">
+          <Label className="font-bold" htmlFor="category">
+            Kategori
+          </Label>
+          <Select
+            value={formData.category}
+            onValueChange={handleCategoryChange}
+            disabled={!formData.type} // Tür seçilmeden kategori seçilemiyor
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Kategori Seç" />
+            </SelectTrigger>
+            <SelectContent>
+              {categories.map((category) => (
+                <SelectItem key={category} value={category}>
+                  {category}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        {/* Açıklama */}
         <div className="flex flex-col gap-2">
           <Label className="font-bold" htmlFor="description">
             Açıklama
@@ -102,9 +144,11 @@ export default function ExpenseForm() {
             required
           />
         </div>
+
+        {/* Miktar */}
         <div className="flex flex-col gap-2">
           <Label className="font-bold" htmlFor="amount">
-            Miktar
+            Miktar (₺)
           </Label>
           <Input
             type="number"
@@ -115,6 +159,8 @@ export default function ExpenseForm() {
             required
           />
         </div>
+
+        {/* Tarih */}
         <div className="flex flex-col gap-2">
           <Label className="font-bold" htmlFor="date">
             Tarih
@@ -129,6 +175,7 @@ export default function ExpenseForm() {
           />
         </div>
 
+        {/* Gönderme butonu */}
         <Button
           className="max-w-lg w-full self-center"
           type="submit"

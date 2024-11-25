@@ -40,7 +40,7 @@ export default function RootLayout({
         >
           <MobileNavbar />
           <Navbar />
-          <div className="min-h-[calc(100vh-112px)] xl:container p-8">
+          <div className="min-h-[calc(100vh-112px)] w-full mx-auto xl:container p-8 flex justify-center">
             {children}
           </div>
           <Footer />

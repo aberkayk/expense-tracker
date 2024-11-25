@@ -16,7 +16,7 @@ const MobileNavbar = () => {
   return (
     <nav
       className={cn(
-        "sticky bg-white top-0 z-50 flex md:hidden h-[60px] min-h-[60px] text-sm px-8 border-black/10"
+        "sticky top-0 z-50 flex md:hidden h-[60px] min-h-[60px] text-sm px-8 border-black/10 dark:border-secondary bg-background"
       )}
     >
       <div className="h-full w-full flex gap-3 justify-between items-center xl:container">

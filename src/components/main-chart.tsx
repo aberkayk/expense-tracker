@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   Title,
@@ -11,6 +11,8 @@ import {
   LinearScale,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { Expense, Income } from "@/lib/types";
+import { months } from "@/lib/constants";
 
 // Chart.js'yi kayıt ediyoruz
 ChartJS.register(
@@ -23,32 +25,13 @@ ChartJS.register(
   LinearScale
 );
 
-interface Expense {
-  amount: number;
-  date: string;
-}
-
 interface MainChartProps {
   expenses: Expense[];
-  income: Expense[];
+  income: Income[];
 }
 
 const MainChart: React.FC<MainChartProps> = ({ expenses, income }) => {
-  // Tüm ayları tanımlıyoruz
-  const months = [
-    "Ocak",
-    "Şubat",
-    "Mart",
-    "Nisan",
-    "Mayıs",
-    "Haziran",
-    "Temmuz",
-    "Ağustos",
-    "Eylül",
-    "Ekim",
-    "Kasım",
-    "Aralık",
-  ];
+  const [isMounted, setIsMounted] = useState(false);
 
   // Gelir ve gider verilerini aylara göre grupluyoruz
   const groupedData = months.map((_, index) => {
@@ -82,15 +65,17 @@ const MainChart: React.FC<MainChartProps> = ({ expenses, income }) => {
     ],
   };
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   return (
-    <div className="grid lg:grid-cols-2 gap-6">
-      <div className="bg-white p-4 rounded shadow-md">
-        <h2 className="text-xl font-semibold">Gelir ve Gider Grafiği</h2>
+    <div className="grid gap-6 h-fit w-full">
+      <div className="bg-secondary w-full p-4 rounded shadow-md">
+        <h2 className="text-lg font-semibold">Gelir ve Gider Grafiği</h2>
         <Line data={chartData} />
-      </div>
-      <div className="bg-white p-4 rounded shadow-md">
-        <h2 className="text-xl font-semibold">Bütçe Durumu</h2>
-        <p>Bütçenizi verimli yönetmek için harcamalarınızı takip edin.</p>
       </div>
     </div>
   );

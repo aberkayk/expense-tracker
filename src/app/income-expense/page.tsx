@@ -10,7 +10,7 @@ const IncomeExpense = async () => {
   ]);
 
   return (
-    <div className="flex flex-col gap-12">
+    <div className="flex flex-col gap-12 w-full">
       <ExpenseForm />
       <Client data={income} isExpense={false} />
       <Client data={expenses} isExpense />

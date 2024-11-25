@@ -10,10 +10,10 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "sticky bg-white top-0 z-50 hidden md:flex h-[60px] min-h-[60px] px-8 shadow-sm bg-background border-black/10"
+        "sticky top-0 z-50 hidden md:flex h-[60px] min-h-[60px] px-8  bg-background border-b border-black/10 dark:border-secondary"
       )}
     >
-      <div className="h-full w-full xl:container items-center justify-between flex">
+      <div className="h-full w-full xl:container mx-auto items-center justify-between flex">
         <div className="flex gap-x-8 items-center">
           {navbarItems.map((item, index) => (
             <Link

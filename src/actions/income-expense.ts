@@ -1,13 +1,7 @@
+import { IExpense } from "@/lib/types";
 import { revalidateTag } from "next/cache";
 
-interface Expense {
-  description: string;
-  amount: number;
-  date: string; // ISO format
-  type: "income" | "expense";
-}
-
-export const addTransaction = async (transaction: Expense) => {
+export const addTransaction = async (transaction: IExpense) => {
   try {
     const endpoint = transaction.type === "income" ? "income" : "expenses";
 
@@ -27,7 +21,6 @@ export const addTransaction = async (transaction: Expense) => {
     }
 
     const newTransaction = await response.json();
-    revalidateTag(transaction.type);
     return newTransaction;
   } catch (error) {
     console.error("Error in addTransaction:", error);

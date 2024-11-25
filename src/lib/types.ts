@@ -4,9 +4,17 @@ export interface Expense {
   amount: number;
   date: string; // ISO format
   type: "income" | "expense";
+  category: string;
 }
 
 export interface Income extends Expense {}
+
+export interface IExpense {
+  description: string;
+  amount: number;
+  date: string; // ISO format
+  type: "income" | "expense";
+}
 
 export type Option = {
   label: string;
@@ -24,4 +32,13 @@ export interface DataTableFilterableColumn<TData>
   extends DataTableSearchableColumn<TData> {
   options: Option[];
   type?: "select" | "date";
+}
+
+export interface Limit {
+  category: string;
+  limit: number;
+}
+
+export interface CategoryTotals {
+  [category: string]: number;
 }

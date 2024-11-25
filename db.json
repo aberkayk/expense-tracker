@@ -5,7 +5,7 @@
       "amount": 100,
       "description": "Yerel marketten yapılan alışveriş",
       "date": "2024-01-10",
-      "category": "Yiyecek & İçecek"
+      "category": "Alışveriş"
     },
     {
       "id": "2",
@@ -26,21 +26,37 @@
       "amount": 35,
       "description": "İş için kırtasiye malzemesi",
       "date": "2024-11-01",
-      "category": "İş Masrafları"
+      "category": "Alışveriş"
     },
     {
       "id": "7893",
       "amount": 150,
       "description": "Kasım ayı elektrik faturası",
       "date": "2024-11-20",
-      "category": "Faturalar"
+      "category": "Elektrik"
     },
     {
       "id": "4567",
       "amount": 300,
       "description": "Kışlık kıyafet alışverişi",
       "date": "2024-10-05",
-      "category": "Giyim"
+      "category": "Alışveriş"
+    },
+    {
+      "id": "d038",
+      "description": "Ev kirası",
+      "amount": 3500,
+      "date": "2024-11-25",
+      "type": "expense",
+      "category": "Kira"
+    },
+    {
+      "id": "7e32",
+      "description": "Ev kirası",
+      "amount": 3500,
+      "date": "2024-11-25",
+      "type": "expense",
+      "category": "Kira"
     }
   ],
   "income": [
@@ -56,35 +72,35 @@
       "amount": 500,
       "description": "Freelance proje ödemesi",
       "date": "2024-02-15",
-      "category": "Freelance Gelir"
+      "category": "Ekstra Gelir"
     },
     {
       "id": "d09f",
       "amount": 38,
       "description": "Online alışverişten geri ödeme",
       "date": "2024-11-23",
-      "category": "Ödüller"
+      "category": "Hediye"
     },
     {
       "id": "604b",
       "amount": 256,
       "description": "Hisse yatırımlarından temettü",
       "date": "2024-01-01",
-      "category": "Yatırımlar"
+      "category": "Yatırım Geliri"
     },
     {
       "id": "781c",
       "amount": 800,
       "description": "Performans bonusu",
       "date": "2024-07-15",
-      "category": "Prim"
+      "category": "Ekstra Gelir"
     },
     {
       "id": "34f7",
       "amount": 150,
       "description": "Kiralık mülkten gelen gelir",
       "date": "2024-09-01",
-      "category": "Kira Geliri"
+      "category": "Maaş"
     }
   ]
 }

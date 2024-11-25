@@ -13,3 +13,36 @@ export const navbarItems = [
     href: "/reports",
   },
 ];
+
+export const incomeCategories = [
+  "Maaş",
+  "Ekstra Gelir",
+  "Yatırım Geliri",
+  "Hediye",
+];
+
+export const expenseCategories = [
+  "Yemek",
+  "Kira",
+  "Elektrik",
+  "Ulaşım",
+  "Alışveriş",
+  "Sağlık",
+  "Eğlence",
+  "Sigorta",
+];
+
+export const months = [
+  "Ocak",
+  "Şubat",
+  "Mart",
+  "Nisan",
+  "Mayıs",
+  "Haziran",
+  "Temmuz",
+  "Ağustos",
+  "Eylül",
+  "Ekim",
+  "Kasım",
+  "Aralık",
+];
